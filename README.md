@@ -300,4 +300,4 @@ Dentro das informações da construção clicar em _"Console Output"_. <br/>
 
 <br/>
 
-Nos logs vamos verificar que foi alocado um novo POD pelo Jenkins, e dentro desse POD foram lançados 2 conteineres. O primeiro conteiner sempre vai se chamar _jnlp_ pois é o conteiner com o serviço de agente para efetuar a conexão e comunicação do POD com o servidor do Jenkins, enquanto o segundo conteiner lançado possui o nome que foi configurado na etapa [Configurar agents em PODs para Kubernetes](https://github.com/raaqueiroz/mba_impacta_boot_camp#containers) e este é responsável por executar os comandos passados pela pipeline.
+Nos logs vamos verificar que foi alocado um novo POD pelo Jenkins, e dentro desse POD foram lançados 2 conteineres. O primeiro conteiner sempre vai se chamar **_"jnlp"_** pois é o conteiner com o serviço de agente para efetuar a conexão e comunicação do POD com o servidor do Jenkins, enquanto o segundo conteiner lançado possui o nome que foi configurado na subetapa [Containers](https://github.com/raaqueiroz/mba_impacta_boot_camp#containers), e este é responsável por executar os comandos e instruções passados pela pipeline.
