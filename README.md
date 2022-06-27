@@ -38,7 +38,7 @@ git clone https://github.com/raaqueiroz/mba_impacta_boot_camp.git
 ```
 <br/>
 
-![git-clone](https://user-images.githubusercontent.com/66445978/175907959-fa91e360-4ab2-42c7-be4d-9dded2fed981.gif)
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/git-clone.gif" height="300" />
 
 
 2. Criar uma VPC com subnets pública e privada onde serão provisionados os serviços.<br/>
@@ -51,6 +51,8 @@ terraform plan -out=tfplan
 terraform apply tfplan
 ```
 <br/>
+
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/terraform-vpc.gif" height="300" />
 
 3. Criar recursos AWS dentro da VPC provisionada no passo 2.
 
@@ -67,6 +69,8 @@ terraform apply tfplan
 ```
 <br/>
 
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/terraform-cluster-jenkins.gif" height="300" />
+
 4. Instalar serviços no cluster Kubernetes, a partir da execução do script shell
 
 ```bash
@@ -76,8 +80,12 @@ sh install_jenkins.sh
 ```
 <br/>
 
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/terraform-cluster-jenkins.gif" height="300" />
+
 5. Acessar a interface do Jenkins pela URL do Load Balancer.
 É possível pegar essa informação com o output de execução do script shell que instala todos os serviços
+
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/terraform-cluster-jenkins.gif" height="300" />
 
 <br/><br/>
 
@@ -95,6 +103,8 @@ Plugins para instalar:
 
 Selecionar os plugins acima e clicar no botão para instalar sem reiniciar.
 Aguardar a instalação, e após concluir marcar a caixa para reiniciar o serviço do Jenkins.
+
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/jenkins-plugins.gif" height="300" />
 
 <br/><br/>
 
@@ -144,6 +154,8 @@ Na página de configuração de segurança
 
 :floppy_disk: Salvar as configurações
 
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/jenkins-security.gif" height="300" />
+
 <br/><br/>
 
 # Configurar agents em PODs para Kubernetes
@@ -190,6 +202,8 @@ Clicar no botão _"Kubernetes Cloud Details..."_  e seguir com o preenchimento <
 
 <br/>
 
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/kubernetes-details.gif" height="300" />
+
 ## Pod Templates
 
 <br/>
@@ -209,6 +223,8 @@ Preencher os campos.
   - python38 (Essa será a label usada como agent na execução de Pipelines)
 
 <br/>
+
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/pod-template.gif" height="300" />
 
 ### Containers
 
@@ -238,6 +254,8 @@ Preencher os campos.
 
 <br/>
 
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/containers.gif" height="300" />
+
 ### Volumes
 
 <br/>
@@ -255,6 +273,8 @@ Preencher os campos.
 
 <br/>
 
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/volumes.gif" height="300" />
+
 ### Service Account
 
 <br/>
@@ -266,7 +286,11 @@ Descer a página até encontrar o campo _"Service Account"_
 
 <br/>
 
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/service-account.gif" height="300" />
+
 :floppy_disk: Salvar as configurações
+
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/save-kubernetes.gif" height="300" />
 
 <br/><br/>
 
@@ -288,11 +312,15 @@ Na página das configurações do job
 
 :floppy_disk: Salvar o job
 
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/criar-pipeline.gif" height="300" />
+
 <br/>
 
 ## Efetuar _Build_ pipeline de teste
 Após criar o job do tipo Pipeline, será possível acessá-lo e efetuar a construção (_build_). <br/>
 Para disparar a execução desse job clicar no botão _"Construir agora"_
+
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/build.gif" height="300" />
 
 <br/>
 
@@ -304,6 +332,8 @@ Dentro das informações da construção clicar em _"Console Output"_. <br/>
 <br/>
 
 Nos logs vamos verificar que foi alocado um novo POD pelo Jenkins, e dentro desse POD foram lançados 2 conteineres. O primeiro conteiner sempre vai se chamar **_"jnlp"_** pois é o conteiner com o serviço de agente para efetuar a conexão e comunicação do POD com o servidor do Jenkins, enquanto o segundo conteiner lançado possui o nome que foi configurado na subetapa [Containers](https://github.com/raaqueiroz/mba_impacta_boot_camp#containers), e este é responsável por executar os comandos e instruções passados pela pipeline.
+
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/logs.gif" height="300" />
 
 <br/><br/>
 
