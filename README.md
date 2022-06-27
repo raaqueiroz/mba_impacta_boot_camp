@@ -38,6 +38,9 @@ git clone https://github.com/raaqueiroz/mba_impacta_boot_camp.git
 ```
 <br/>
 
+![git-clone](https://user-images.githubusercontent.com/66445978/175907959-fa91e360-4ab2-42c7-be4d-9dded2fed981.gif)
+
+
 2. Criar uma VPC com subnets pública e privada onde serão provisionados os serviços.<br/>
 :information_source: _Caso já possua uma VPC definida, necessário editar os arquivos terraform do cluster-jenkins e pular o passo 2_
 
