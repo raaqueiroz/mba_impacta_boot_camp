@@ -80,12 +80,12 @@ sh install_jenkins.sh
 ```
 <br/>
 
-<img src="https://public-transfer-temp-files.s3.amazonaws.com/terraform-cluster-jenkins.gif" height="300" />
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/instalacao.gif" height="300" />
 
 5. Acessar a interface do Jenkins pela URL do Load Balancer.
 É possível pegar essa informação com o output de execução do script shell que instala todos os serviços
 
-<img src="https://public-transfer-temp-files.s3.amazonaws.com/terraform-cluster-jenkins.gif" height="300" />
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/acesso-web.gif" height="300" />
 
 <br/><br/>
 
