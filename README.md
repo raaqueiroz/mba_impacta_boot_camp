@@ -154,7 +154,7 @@ Na página de configuração de segurança
 
 :floppy_disk: Salvar as configurações
 
-<img src="https://public-transfer-temp-files.s3.amazonaws.com/jenkins-security.gif" height="300" />
+<img src="https://public-transfer-temp-files.s3.amazonaws.com/jenkins-security2.gif" height="300" />
 
 <br/><br/>
 
