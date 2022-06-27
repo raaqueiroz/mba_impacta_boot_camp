@@ -40,6 +40,7 @@ git clone https://github.com/raaqueiroz/mba_impacta_boot_camp.git
 
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/git-clone.gif" height="300" />
 
+<br/>
 
 2. Criar uma VPC com subnets pública e privada onde serão provisionados os serviços.<br/>
 :information_source: _Caso já possua uma VPC definida, necessário editar os arquivos terraform do cluster-jenkins e pular o passo 2_
@@ -53,6 +54,8 @@ terraform apply tfplan
 <br/>
 
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/terraform-vpc.gif" height="300" />
+
+<br/>
 
 3. Criar recursos AWS dentro da VPC provisionada no passo 2.
 
@@ -71,6 +74,8 @@ terraform apply tfplan
 
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/terraform-cluster-jenkins.gif" height="300" />
 
+<br/>
+
 4. Instalar serviços no cluster Kubernetes, a partir da execução do script shell
 
 ```bash
@@ -82,8 +87,12 @@ sh install_jenkins.sh
 
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/instalacao.gif" height="300" />
 
+<br/>
+
 5. Acessar a interface do Jenkins pela URL do Load Balancer.
 É possível pegar essa informação com o output de execução do script shell que instala todos os serviços
+
+<br/>
 
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/acesso-web.gif" height="300" />
 
@@ -103,6 +112,8 @@ Plugins para instalar:
 
 Selecionar os plugins acima e clicar no botão para instalar sem reiniciar.
 Aguardar a instalação, e após concluir marcar a caixa para reiniciar o serviço do Jenkins.
+
+<br/>
 
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/jenkins-plugins.gif" height="300" />
 
@@ -154,6 +165,8 @@ Na página de configuração de segurança
 
 :floppy_disk: Salvar as configurações
 
+<br/>
+
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/jenkins-security2.gif" height="300" />
 
 <br/><br/>
@@ -204,6 +217,8 @@ Clicar no botão _"Kubernetes Cloud Details..."_  e seguir com o preenchimento <
 
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/kubernetes-details.gif" height="300" />
 
+<br/>
+
 ## Pod Templates
 
 <br/>
@@ -225,6 +240,8 @@ Preencher os campos.
 <br/>
 
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/pod-template.gif" height="300" />
+
+<br/>
 
 ### Containers
 
@@ -256,6 +273,8 @@ Preencher os campos.
 
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/containers.gif" height="300" />
 
+<br/>
+
 ### Volumes
 
 <br/>
@@ -275,6 +294,8 @@ Preencher os campos.
 
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/volumes.gif" height="300" />
 
+<br/>
+
 ### Service Account
 
 <br/>
@@ -288,7 +309,11 @@ Descer a página até encontrar o campo _"Service Account"_
 
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/service-account.gif" height="300" />
 
+<br/>
+
 :floppy_disk: Salvar as configurações
+
+<br/>
 
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/save-kubernetes.gif" height="300" />
 
@@ -312,6 +337,8 @@ Na página das configurações do job
 
 :floppy_disk: Salvar o job
 
+<br/>
+
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/criar-pipeline.gif" height="300" />
 
 <br/>
@@ -319,6 +346,8 @@ Na página das configurações do job
 ## Efetuar _Build_ pipeline de teste
 Após criar o job do tipo Pipeline, será possível acessá-lo e efetuar a construção (_build_). <br/>
 Para disparar a execução desse job clicar no botão _"Construir agora"_
+
+<br/>
 
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/build.gif" height="300" />
 
@@ -332,6 +361,8 @@ Dentro das informações da construção clicar em _"Console Output"_. <br/>
 <br/>
 
 Nos logs vamos verificar que foi alocado um novo POD pelo Jenkins, e dentro desse POD foram lançados 2 conteineres. O primeiro conteiner sempre vai se chamar **_"jnlp"_** pois é o conteiner com o serviço de agente para efetuar a conexão e comunicação do POD com o servidor do Jenkins, enquanto o segundo conteiner lançado possui o nome que foi configurado na subetapa [Containers](https://github.com/raaqueiroz/mba_impacta_boot_camp#containers), e este é responsável por executar os comandos e instruções passados pela pipeline.
+
+<br/>
 
 <img src="https://public-transfer-temp-files.s3.amazonaws.com/logs.gif" height="300" />
 
