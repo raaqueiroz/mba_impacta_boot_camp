@@ -7,11 +7,20 @@ echo "#############################################################"
 echo ""
 aws eks update-kubeconfig --name jenkins
 
-echo ""
-echo "------------"
-echo "---  OK  ---"
-echo "------------"
-echo ""
+if [ $? -eq 0 ]
+then
+    echo ""
+    echo "------------"
+    echo "---  OK  ---"
+    echo "------------"
+    echo ""
+else
+    echo ""
+    echo "!!!!!!!!!!!!!!"
+    echo "!!!  FAIL  !!!"
+    echo "!!!!!!!!!!!!!!"
+    echo ""
+fi
 
 echo ""
 echo "##################################################################"
@@ -21,11 +30,20 @@ echo ""
 EFSID=$(aws efs describe-file-systems --query "FileSystems[?CreationToken == 'jenkins-efs'].FileSystemId" --output text)
 sed -i "s/EFSID/$EFSID/g" ./volumes.yaml
 
-echo ""
-echo "------------"
-echo "---  OK  ---"
-echo "------------"
-echo ""
+if [ $? -eq 0 ]
+then
+    echo ""
+    echo "------------"
+    echo "---  OK  ---"
+    echo "------------"
+    echo ""
+else
+    echo ""
+    echo "!!!!!!!!!!!!!!"
+    echo "!!!  FAIL  !!!"
+    echo "!!!!!!!!!!!!!!"
+    echo ""
+fi
 
 echo ""
 echo "#####################################################"
@@ -35,11 +53,20 @@ echo ""
 helm repo update
 helm upgrade --install ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace
 
-echo ""
-echo "------------"
-echo "---  OK  ---"
-echo "------------"
-echo ""
+if [ $? -eq 0 ]
+then
+    echo ""
+    echo "------------"
+    echo "---  OK  ---"
+    echo "------------"
+    echo ""
+else
+    echo ""
+    echo "!!!!!!!!!!!!!!"
+    echo "!!!  FAIL  !!!"
+    echo "!!!!!!!!!!!!!!"
+    echo ""
+fi
 
 echo ""
 echo "##########################################"
@@ -48,11 +75,20 @@ echo "##########################################"
 echo ""
 kubectl apply -k "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.3"
 
-echo ""
-echo "------------"
-echo "---  OK  ---"
-echo "------------"
-echo ""
+if [ $? -eq 0 ]
+then
+    echo ""
+    echo "------------"
+    echo "---  OK  ---"
+    echo "------------"
+    echo ""
+else
+    echo ""
+    echo "!!!!!!!!!!!!!!"
+    echo "!!!  FAIL  !!!"
+    echo "!!!!!!!!!!!!!!"
+    echo ""
+fi
 
 echo ""
 echo "##################################################################"
@@ -61,11 +97,20 @@ echo "##################################################################"
 echo ""
 kubectl apply -k .
 
-echo ""
-echo "------------"
-echo "---  OK  ---"
-echo "------------"
-echo ""
+if [ $? -eq 0 ]
+then
+    echo ""
+    echo "------------"
+    echo "---  OK  ---"
+    echo "------------"
+    echo ""
+else
+    echo ""
+    echo "!!!!!!!!!!!!!!"
+    echo "!!!  FAIL  !!!"
+    echo "!!!!!!!!!!!!!!"
+    echo ""
+fi
 
 echo ""
 echo "##################################################################"
