@@ -15,10 +15,10 @@ Todos os passos, opções e telas descritas abaixo estarão em português.
 # Pré Requisitos
 Necessário executar tudo em sistema operacional Linux, para esse projeto foram usados os seguintes recursos e versões
 
-- AWS CLI (aws-cli/2.4.14)
-- Terraform (v1.2.3)
-- Python (3.8.10)
-- Helm (v3.7.0)
+- :cloud: AWS CLI (aws-cli/2.4.14)
+- :earth_americas: Terraform (v1.2.3)
+- :snake: Python (3.8.10)
+- :chart_with_upwards_trend: Helm (v3.7.0)
 
 <br/>
 
@@ -76,7 +76,7 @@ sh install_jenkins.sh
 5. Acessar a interface do Jenkins pela URL do Load Balancer.
 É possível pegar essa informação com o output de execução do script shell que instala todos os serviços
 
-<br/>
+<br/><br/>
 
 # Instalação de plugins Jenkins
 Acessar o menu de instalação de plugins
@@ -93,7 +93,7 @@ Plugins para instalar:
 Selecionar os plugins acima e clicar no botão para instalar sem reiniciar.
 Aguardar a instalação, e após concluir marcar a caixa para reiniciar o serviço do Jenkins.
 
-<br/>
+<br/><br/>
 
 # Configuração de segurança Jenkins
 Acessar o menu de configuração de segurança
@@ -141,7 +141,7 @@ Na página de configuração de segurança
 
 :floppy_disk: Salvar as configurações
 
-<br/>
+<br/><br/>
 
 # Configurar agents em PODs para Kubernetes
 Acessar o menu de configuração de agentes
@@ -207,7 +207,7 @@ Preencher os campos.
 
 <br/>
 
-## Containers
+### Containers
 
 <br/>
 
@@ -235,7 +235,7 @@ Preencher os campos.
 
 <br/>
 
-## Volumes
+### Volumes
 
 <br/>
 
@@ -252,7 +252,7 @@ Preencher os campos.
 
 <br/>
 
-## Service Account
+### Service Account
 
 <br/>
 
@@ -265,7 +265,7 @@ Descer a página até encontrar o campo _"Service Account"_
 
 :floppy_disk: Salvar as configurações
 
-<br/>
+<br/><br/>
 
 # Executar Pipeline de teste
 ## Criar um novo job do tipo Pipeline
@@ -301,3 +301,16 @@ Dentro das informações da construção clicar em _"Console Output"_. <br/>
 <br/>
 
 Nos logs vamos verificar que foi alocado um novo POD pelo Jenkins, e dentro desse POD foram lançados 2 conteineres. O primeiro conteiner sempre vai se chamar **_"jnlp"_** pois é o conteiner com o serviço de agente para efetuar a conexão e comunicação do POD com o servidor do Jenkins, enquanto o segundo conteiner lançado possui o nome que foi configurado na subetapa [Containers](https://github.com/raaqueiroz/mba_impacta_boot_camp#containers), e este é responsável por executar os comandos e instruções passados pela pipeline.
+
+<br/><br/>
+
+# Continuidade
+:trophy:
+
+É possível dar sequencia nesse projeto e realizar a construção de novas pipelines mais completas configurando diversos templates de PODs com seus respectivos conteineres.
+
+Cada template de POD é tratado como um agente dentro do Jenkins e pode ser invocado a qualquer momento ao longo da execução de uma pipeline, como por exemplo um agente específico para processar cada stage da sua pipeline.
+
+Cada template de POD pode ter um tipo diferente de conteiner, é possível também utilizar imagens docker personalizadas, que estejam publicadas no Registry do Docker Hub, para execução de comandos específicos.
+
+Para criar novos templates de PODs e ter novos agentes disponíveis com diferentes bibliotecas e comandos, é necessário repetir a subetapa [Pod Templates](https://github.com/raaqueiroz/mba_impacta_boot_camp#pod-templates) e seus passos seguintes.
