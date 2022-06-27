@@ -164,7 +164,11 @@ Conforme exemplo, preencher os campos abaixo seguindo os ícones, ações e camp
 
 _Ação à ser executada_
 
-##
+## Kubernetes Cloud Details
+
+<br/>
+
+Clicar no botão _"Kubernetes Cloud Details..."_  e seguir com o preenchimento <br/>
 
 - Name
   - kubernetes
@@ -183,8 +187,14 @@ _Ação à ser executada_
 
 <br/>
 
-_Clicar no Botão para adicionar novo template de POD: Add Pod Template._ <br/>
-_Preencher os campos._
+## Pod Templates
+
+<br/>
+
+Clicar no botão _"Pod Templates..."_ <br/>
+Clicar no botão _"Add Pod Template"_ <br/>
+Clicar no botão _"Pod Template details..."_ <br/>
+Preencher os campos.
 
 - Name
   - python38
@@ -197,8 +207,13 @@ _Preencher os campos._
 
 <br/>
 
-_Clicar na opção de adicionar conteiner: Add Container._ <br/>
-_Preencher os campos._
+## Containers
+
+<br/>
+
+Clicar no botão _"Add Container"_ <br/>
+Clicar na opção _"Container Template"_ <br/>
+Preencher os campos.
 
 - Name
   - python38 (Recomendado ter o mesmo nome da label do Pod Template)
@@ -220,7 +235,14 @@ _Preencher os campos._
 
 <br/>
 
-_Clicar no botão avançado do conteiner, descer até a parte de volumes e clicar para adicionar um novo volume do tipo "Host Path"_
+## Volumes
+
+<br/>
+
+Clicar no botão _"Add Volume"_ <br/>
+Clicar na opção _"Host Path Volume"_ <br/>
+Preencher os campos.
+
 
 - Host path
   - /var/run/docker.sock
@@ -230,7 +252,11 @@ _Clicar no botão avançado do conteiner, descer até a parte de volumes e clica
 
 <br/>
 
-_Descer a página_ 
+## Service Account
+
+<br/>
+
+Descer a página até encontrar o campo _"Service Account"_
 
 - Service Account
   - jenkins
@@ -274,4 +300,4 @@ Dentro das informações da construção clicar em _"Console Output"_. <br/>
 
 <br/>
 
-Nos logs vamos verificar que foi alocado um novo POD pelo Jenkins, e dentro desse POD foram lançados 2 conteineres. O primeiro conteiner sempre vai se chamar _jnlp_ pois é o conteiner com o serviço de agente para efetuar a conexão e comunicação do POD com o servidor do Jenkins, enquanto o segundo conteiner lançado possui o nome que foi configurado na etapa [Configurar agents em PODs para Kubernetes](https://github.com/raaqueiroz/mba_impacta_boot_camp#configurar-agents-em-pods-para-kubernetes) e este é responsável por executar os comandos passados pela pipeline.
+Nos logs vamos verificar que foi alocado um novo POD pelo Jenkins, e dentro desse POD foram lançados 2 conteineres. O primeiro conteiner sempre vai se chamar _jnlp_ pois é o conteiner com o serviço de agente para efetuar a conexão e comunicação do POD com o servidor do Jenkins, enquanto o segundo conteiner lançado possui o nome que foi configurado na etapa [Configurar agents em PODs para Kubernetes](https://github.com/raaqueiroz/mba_impacta_boot_camp#containers) e este é responsável por executar os comandos passados pela pipeline.
